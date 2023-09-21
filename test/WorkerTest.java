@@ -3,19 +3,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PersonTest {
+class WorkerTest {
 
-    Person p1, p2, p3, p4, p5, p6;
+    Worker p1, p2, p3, p4, p5, p6;
 
     @BeforeEach
     void setUp() {
-        p1 = new Person("CJ", "B", "000001", "Mr.", 2003);
-        p2 = new Person("Howard", "W", "000002", "Mr.", 1997);
-        Person.setIDSeed(0);
-        p3 = new Person("Harry", "K", "Mr.", 2003);
-        p4 = new Person("Timmy", "J",  "Mr.", 1998);
-        p5 = new Person("Denim", "N",  "Mr.", 1990);
-        p6 = new Person("Sarah", "T", "Ms.", 2000);
+        p1 = new Worker("CJ", "B", "Mr.", 2003);
+        p2 = new Worker("Howard", "W", "Mr.", 1997);
+        p3 = new Worker("Harry", "K", "Mr.", 2003);
+        p4 = new Worker("Timmy", "J",  "Mr.", 1998);
+        p5 = new Worker("Denim", "N",  "Mr.", 1990);
+        p6 = new Worker("Sarah", "T", "Ms.", 2000);
     }
 
 
@@ -66,5 +65,11 @@ class PersonTest {
 
     @Test
     void toCSVDataRecord() {
+    }
+
+    @Test
+    void setHourlyPayRate() {
+        p1.setHourlyPayRate(20);
+        assertEquals(20, p1.getHourlyPayRate());
     }
 }

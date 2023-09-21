@@ -3,19 +3,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PersonTest {
+class SalaryWorkerTest {
 
-    Person p1, p2, p3, p4, p5, p6;
+    SalaryWorker p1, p2, p3, p4, p5, p6;
 
     @BeforeEach
     void setUp() {
-        p1 = new Person("CJ", "B", "000001", "Mr.", 2003);
-        p2 = new Person("Howard", "W", "000002", "Mr.", 1997);
-        Person.setIDSeed(0);
-        p3 = new Person("Harry", "K", "Mr.", 2003);
-        p4 = new Person("Timmy", "J",  "Mr.", 1998);
-        p5 = new Person("Denim", "N",  "Mr.", 1990);
-        p6 = new Person("Sarah", "T", "Ms.", 2000);
+        p1 = new SalaryWorker("CJ", "B", "Mr.", 2003);
+        p2 = new SalaryWorker("Howard", "W", "Mr.", 1997);
+        p3 = new SalaryWorker("Harry", "K", "Mr.", 2003);
+        p4 = new SalaryWorker("Timmy", "J",  "Mr.", 1998);
+        p5 = new SalaryWorker("Denim", "N",  "Mr.", 1990);
+        p6 = new SalaryWorker("Sarah", "T", "Ms.", 2000);
     }
 
 
@@ -56,6 +55,12 @@ class PersonTest {
     }
 
     @Test
+    void setHourlyPayRate() {
+        p1.setHourlyPayRate(20);
+        assertEquals(20, p1.getHourlyPayRate());
+    }
+
+    @Test
     void fullName() {
         assertEquals(p1.getFirstName() + " " + p1.getLastName(), p1.fullName());
     }
@@ -66,5 +71,9 @@ class PersonTest {
 
     @Test
     void toCSVDataRecord() {
+    }
+
+    @Test
+    void displayWeeklyPay() {
     }
 }
